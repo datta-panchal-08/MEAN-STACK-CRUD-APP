@@ -1,0 +1,32 @@
+<div class="p-4 border shadow ">
+   <div class="flex items-center justify-between mb-4">
+    <h1 class="text-xl font-semibold ">Users Data</h1>
+    <button class="px-4 py-1 bg-green-500 rounded-md text-white font-semibold" routerLink="/users/add">Add User</button>
+   </div>
+   <table class="w-[100%] text-center ">
+      <thead class="border-[1px] border-solid border-black">
+        <tr class="w-[100%] ">
+            <th  class="border-[1px] border-solid border-black p-[1rem] " >Name</th>
+            <th class="border-[1px] border-solid border-black p-[1rem]">Email</th>
+            <th class="border-[1px] border-solid border-black p-[1rem]">Age</th>
+            <th class="border-[1px] border-solid border-black p-[1rem]">Address</th>
+            <th class="border-[1px] border-solid border-black p-[1rem]">Action</th>
+        </tr>
+      </thead>
+        @for (user of users; track $index) {
+          <tbody class="border-3 border-black">
+              <td class="border-[1px] border-solid border-black p-[1rem]">{{user.name}}</td>
+              <td class="border-[1px] border-solid border-black p-[1rem]">{{user.email}}</td>
+              <td class="border-[1px] border-solid border-black p-[1rem]">{{user.age}}</td>
+              <td class="border-[1px] border-solid border-black p-[1rem]">{{user.address}}</td>
+              <td class="border-[1px] border-solid border-black p-[1rem]">
+                      <div class="flex gap-4 justify-center">
+                        <button  class="px-3 py-1 bg-yellow-600 text-xl rounded-md text-white" [routerLink]="'/users/'+user._id"><i class="ri-edit-box-line"></i></button>
+                        <button class="px-3 py-1 bg-red-600 text-xl rounded-md text-white" (click)="delete(user._id!)"><i class="ri-delete-bin-4-fill"></i></button>
+                      </div>
+              </td>
+            </tbody>
+
+        }
+   </table>
+</div>
