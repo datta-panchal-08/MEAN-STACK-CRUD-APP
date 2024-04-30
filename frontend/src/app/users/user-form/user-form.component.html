@@ -1,0 +1,27 @@
+<div class="shadow border p-4">
+
+   @if(editUserId){
+      <h2 class="mb-5 text-2xl font-bold text-center">Update User</h2>
+   }@else{
+      <h2 class="mb-5 text-2xl font-bold text-center">Add User</h2>
+
+   }
+
+   <form [formGroup]="userForm">
+      <div class="flex flex-wrap ">
+          <input class="w-full py-3 border-2 rounded-md px-5 mb-4 outline-blue-400" type="text" formControlName="name" placeholder="Enter Your Name">
+          <input class="w-full py-3 border-2 rounded-md px-5 mb-4 outline-blue-400" type="email" formControlName="email" placeholder="Enter Your Email">
+          <input class="w-full py-3 border-2 rounded-md px-5 mb-4 outline-blue-400" type="number" formControlName="age" placeholder="Enter Your Age">
+          <input class="w-full py-3 border-2 rounded-md px-5 mb-4 outline-blue-400" type="text" formControlName="address" placeholder="Enter Your Address">
+          <input class="w-full py-3 border-2 rounded-md px-5 mb-4 outline-blue-400" type="password" formControlName="password" placeholder="Enter your Password">
+        </div>
+         <div class="flex items-center justify-center">
+            @if(editUserId){
+               <button class="text-center bg-purple-600 px-5 py-1 rounded-md text-white font-semibold text-xl" (click)="updateUser()">Update</button>
+            }@else{
+               <button class="text-center bg-purple-600 px-5 py-1 rounded-md text-white font-semibold text-xl" (click)="addUser()">Add</button>         
+            }
+
+         </div>
+   </form>
+</div>
